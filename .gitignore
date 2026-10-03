@@ -1,0 +1,27 @@
+# Android / IntelliJ / Gradle
+.gradle
+/local.properties
+/.idea/
+/build
+/captures
+.externalNativeBuild
+.cxx
+app/.cxx
+**/build/
+.gradle/
+.gradle/
+*/build/
+.idea/
+.gradle/
+*.iml
+
+# Keystore
+*.jks
+*.keystore
+
+# Android Studio
+/.idea
+/*.iml
+
+# Gradle wrapper
+gradle/wrapper/gradle-wrapper.jar

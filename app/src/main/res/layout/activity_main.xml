@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#202124"
+    android:orientation="vertical"
+    tools:ignore="HardcodedText">
+
+    <!-- ================= BARRA SUPERIOR (modo navegar) ================= -->
+    <LinearLayout
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#202124"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="6dp">
+
+        <EditText
+            android:id="@+id/urlInput"
+            android:layout_width="0dp"
+            android:layout_height="44dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_url_input"
+            android:hint="@string/url_hint"
+            android:imeOptions="actionGo"
+            android:importantForAutofill="no"
+            android:inputType="textUri"
+            android:maxLines="1"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:selectAllOnFocus="true"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#9AA0A6"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/btnGo"
+            style="@style/ToolbarButton"
+            android:contentDescription="@string/cd_go"
+            android:text="→" />
+
+        <TextView
+            android:id="@+id/btnPlay"
+            style="@style/ToolbarButton"
+            android:contentDescription="@string/cd_play"
+            android:text="🎮" />
+    </LinearLayout>
+
+    <!-- ================= ÁREA DE JUEGO ================= -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <!-- 1) El navegador, ocupando todo el espacio -->
+        <WebView
+            android:id="@+id/webView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:layout_gravity="top"
+            android:indeterminate="false"
+            android:max="100"
+            android:progressTint="#4285F4"
+            android:visibility="gone" />
+
+        <!-- 2) Contenedor de pantalla completa HTML5 (debajo del gamepad) -->
+        <FrameLayout
+            android:id="@+id/customViewContainer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#000000"
+            android:visibility="gone" />
+
+        <!--
+            3) CAPA FLOTANTE DEL GAMEPAD
+            - No es clickable: los toques en zonas vacías pasan al WebView.
+            - splitMotionEvents: permite pulsar varios botones a la vez.
+            - Cada botón lleva en android:tag el nombre de la tecla (KeyboardEvent.code).
+        -->
+        <FrameLayout
+            android:id="@+id/gamepadOverlay"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:splitMotionEvents="true"
+            android:visibility="gone">
+
+            <!-- ---------- Cruceta (izquierda) ---------- -->
+            <FrameLayout
+                android:layout_width="168dp"
+                android:layout_height="168dp"
+                android:layout_gravity="bottom|start"
+                android:layout_margin="20dp">
+
+                <TextView
+                    style="@style/GamepadButton"
+                    android:layout_gravity="top|center_horizontal"
+                    android:tag="ArrowUp"
+                    android:text="↑"
+                    android:textSize="24sp" />
+
+                <TextView
+                    style="@style/GamepadButton"
+                    android:layout_gravity="bottom|center_horizontal"
+                    android:tag="ArrowDown"
+                    android:text="↓"
+                    android:textSize="24sp" />
+
+                <TextView
+                    style="@style/GamepadButton"
+                    android:layout_gravity="center_vertical|start"
+                    android:tag="ArrowLeft"
+                    android:text="←"
+                    android:textSize="24sp" />
+
+                <TextView
+                    style="@style/GamepadButton"
+                    android:layout_gravity="center_vertical|end"
+                    android:tag="ArrowRight"
+                    android:text="→"
+                    android:textSize="24sp" />
+            </FrameLayout>
+
+            <!-- ---------- Botones de acción (derecha) ---------- -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|end"
+                android:layout_margin="20dp"
+                android:gravity="end"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/GamepadButton"
+                        android:tag="Escape"
+                        android:text="Esc"
+                        android:textSize="13sp" />
+
+                    <TextView
+                        style="@style/GamepadButton"
+                        android:tag="ShiftLeft"
+                        android:text="Shift"
+                        android:textSize="13sp" />
+
+                    <TextView
+                        style="@style/GamepadButton"
+                        android:tag="KeyZ"
+                        android:text="Z" />
+
+                    <TextView
+                        style="@style/GamepadButton"
+                        android:tag="KeyX"
+                        android:text="X" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/GamepadButton"
+                        android:tag="Enter"
+                        android:text="Enter"
+                        android:textSize="13sp" />
+
+                    <TextView
+                        style="@style/GamepadButton"
+                        android:layout_width="128dp"
+                        android:tag="Space"
+                        android:text="Space" />
+                </LinearLayout>
+            </LinearLayout>
+        </FrameLayout>
+
+        <!-- 4) Botón para volver al modo navegar (solo visible jugando) -->
+        <TextView
+            android:id="@+id/btnMenu"
+            style="@style/GamepadButton"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:layout_gravity="top|end"
+            android:layout_margin="12dp"
+            android:alpha="0.6"
+            android:contentDescription="@string/cd_menu"
+            android:text="☰"
+            android:visibility="gone" />
+    </FrameLayout>
+</LinearLayout>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Web Gamepad</string>
+    <string name="url_hint">Buscar en Google o escribir URL</string>
+    <string name="cd_go">Ir</string>
+    <string name="cd_play">Modo juego</string>
+    <string name="cd_menu">Volver al navegador</string>
+    <string name="error_loading">No se pudo cargar la página: %1$s</string>
+</resources>

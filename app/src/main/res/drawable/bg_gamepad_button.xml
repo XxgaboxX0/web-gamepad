@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Fondo de los botones del gamepad.
+    Semitransparente oscuro con borde claro: se ve sobre páginas blancas y negras.
+    El radio grande se recorta automáticamente: círculo en 56x56, píldora en 128x56.
+-->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_pressed="true">
+        <shape android:shape="rectangle">
+            <solid android:color="#CC4285F4" />
+            <stroke android:width="2dp" android:color="#FFFFFFFF" />
+            <corners android:radius="100dp" />
+        </shape>
+    </item>
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="#66000000" />
+            <stroke android:width="2dp" android:color="#B3FFFFFF" />
+            <corners android:radius="100dp" />
+        </shape>
+    </item>
+</selector>
