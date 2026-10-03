@@ -339,7 +339,7 @@ class MainActivity : AppCompatActivity() {
         btnMenu.isVisible = enabled
         if (!enabled) releaseAllKeys()
 
-        setImmersive(enabled)
+        applyImmersiveMode(enabled)
         requestedOrientation = if (enabled) {
             ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE
         } else {
@@ -351,7 +351,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     /** Oculta/muestra barra de estado y de navegación (deslizar desde el borde las muestra un instante). */
-    private fun setImmersive(enabled: Boolean) {
+    private fun applyImmersiveMode(enabled: Boolean) {
         val controller = WindowCompat.getInsetsController(window, window.decorView)
         if (enabled) {
             controller.systemBarsBehavior =
