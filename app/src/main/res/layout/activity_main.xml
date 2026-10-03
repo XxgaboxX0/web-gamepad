@@ -82,9 +82,9 @@
 
         <!--
             3) CAPA FLOTANTE DEL GAMEPAD
-            - No es clickable: los toques en zonas vacías pasan al WebView.
-            - splitMotionEvents: permite pulsar varios botones a la vez.
-            - Cada botón lleva en android:tag el nombre de la tecla (KeyboardEvent.code).
+            * No es clickable: los toques en zonas vacías pasan al WebView.
+            * splitMotionEvents: permite pulsar varios botones a la vez.
+            * Cada botón lleva en android:tag el nombre de la tecla (KeyboardEvent.code).
         -->
         <FrameLayout
             android:id="@+id/gamepadOverlay"
@@ -93,7 +93,7 @@
             android:splitMotionEvents="true"
             android:visibility="gone">
 
-            <!-- ---------- Cruceta (izquierda) ---------- -->
+            <!-- ================== Cruceta (izquierda) ================== -->
             <FrameLayout
                 android:layout_width="168dp"
                 android:layout_height="168dp"
@@ -129,7 +129,7 @@
                     android:textSize="24sp" />
             </FrameLayout>
 
-            <!-- ---------- Botones de acción (derecha) ---------- -->
+            <!-- ================ Botones de acción (derecha) ================ -->
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
