@@ -4,6 +4,32 @@
     <string name="url_hint">Buscar en Google o escribir URL</string>
     <string name="cd_go">Ir</string>
     <string name="cd_play">Modo juego</string>
-    <string name="cd_menu">Volver al navegador</string>
+    <string name="cd_more">Más opciones</string>
+    <string name="cd_menu">Menú</string>
     <string name="error_loading">No se pudo cargar la página: %1$s</string>
+
+    <!-- Menú -->
+    <string name="menu_play">Modo juego</string>
+    <string name="menu_exit_play">Salir del modo juego</string>
+    <string name="menu_new_tab">Nueva pestaña</string>
+    <string name="menu_tabs">Pestañas (%1$d)</string>
+    <string name="menu_zoom_in">Acercar (+)</string>
+    <string name="menu_zoom_out">Alejar (−)</string>
+    <string name="menu_zoom_lock">Bloquear zoom</string>
+    <string name="menu_desktop">Modo computadora</string>
+    <string name="menu_reload">Recargar</string>
+
+    <!-- Pestañas -->
+    <string name="tabs_title">Pestañas abiertas (%1$d)</string>
+    <string name="tab_new">Nueva</string>
+    <string name="tab_close_current">Cerrar actual</string>
+    <string name="tab_blank">Pestaña nueva</string>
+
+    <!-- Avisos -->
+    <string name="toast_zoom_locked">Zoom bloqueado</string>
+    <string name="toast_zoom_unlocked">Zoom desbloqueado</string>
+    <string name="toast_unlock_zoom_first">Desbloquea el zoom primero</string>
+    <string name="toast_desktop_on">Modo computadora activado</string>
+    <string name="toast_desktop_off">Modo móvil activado</string>
+    <string name="toast_missing_script">Falta assets/gamepad_controller.js: el gamepad no enviará teclas</string>
 </resources>
